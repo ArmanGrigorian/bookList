@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: var(--my-font-family);
 }
 
 main {
@@ -11,16 +12,26 @@ main {
     width: min(100%, 1020px);
     min-height: 100vh;
     margin: 0px auto;
-    background-image: url("../img/books.jpg");
+    background-image: url("../img/bookShelf.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
+    border-inline: 2px solid var(--my-color-booksDark);
 
     nav {
         width: 100%;
         background-color: var(--my-color-booksGreen);
+        box-shadow: 0px 3px 7px 2px var(--my-color-booksDark);
+        background-image: linear-gradient(90deg,
+                var(--my-color-booksGreen) 0% 94%,
+                var(--my-color-booksLight) 94% 96%,
+                var(--my-color-booksDark) 96% 98%,
+                var(--my-color-booksGreen) 98% 100%,
+            );
         padding-block: var(--my-padding);
+            
 
         h1 {
+            font-size: var(--my-font-size-h1);
             text-align: center;
         }
     }
@@ -29,26 +40,24 @@ main {
         width: 70%;
         background-color: var(--my-color-booksLight);
         border-radius: var(--my-border-radius);
+        box-shadow: 0px 0px 5px 3px var(--my-color-booksDark);
         padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
 
         fieldset {
             @include i.colFlex(center, center, 5px);
-            border: 1px solid var(--my-color-booksDark);
-            border-radius: var(--my-border-radius);
-            padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
-
-            label {
-                margin-right: auto;
-            }
+            @include i.fieldset;
 
             input {
                 width: 100%;
                 margin-bottom: var(--my-margin);
+                color: var(--my-color-booksGreen);
                 padding: calc(var(--my-padding) - 4px) var(--my-padding);
 
                 &[name="submitButton"],
                 &[name="resetButton"] {
-                    padding: calc(var(--my-padding) - 6px) 0px;
+                    @include i.button;
+                    width: 100px;
+                    font-weight: 600;
                 }
             }
         }
@@ -58,9 +67,10 @@ main {
     .booksContainer {
         @include i.colFlex(center, center);
         width: 70%;
-        border-radius: var(--my-border-radius);
-        padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
         background-color: var(--my-color-booksLight);
+        border-radius: var(--my-border-radius);
+        box-shadow: 0px 0px 5px 3px var(--my-color-booksDark);
+        padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
 
         .findBookForm {
             width: 100%;
@@ -69,11 +79,10 @@ main {
 
             fieldset {
                 @include i.rowFlex(center, center, 10px);
-                border: 1px solid var(--my-color-booksDark);
-                border-radius: var(--my-border-radius);
-                padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+                @include i.fieldset;
 
                 input {
+                    color: var(--my-color-booksDark);
                     padding: calc(var(--my-padding) / 5) var(--my-padding);
 
                     &:first-of-type {
@@ -95,12 +104,26 @@ main {
             display: grid;
             grid-template-columns: repeat(3, 1fr) 60px;
             align-items: center;
+
+            h3 {
+                color: var(--my-color-booksDark);
+                font-size: var(--my-font-size-h3);
+                font-weight: 600;
+            }
         }
 
         .books {
             @extend .booksContTop;
             border-top: none;
-            color: var(--my-color-booksDark);
+
+            p {
+                color: var(--my-color-booksGreen);
+                font-size: var(--my-font-size-p);
+            }
+
+            button {
+                @include i.xButton;
+            }
         }
     }
 }

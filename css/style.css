@@ -1,18 +1,24 @@
 :root {
   --my-padding: 10px;
   --my-margin: 12px;
-  --my-border-radius: 2px;
+  --my-border-radius: 4px;
   --my-color-black: rgb(0, 0, 0);
   --my-color-whiteLight: rgb(255, 255, 255);
-  --my-color-booksLight: rgba(179, 160, 130, 0.9);
-  --my-color-booksDark: rgb(54, 38, 31);
-  --my-color-booksGreen: rgba(0, 91, 76, 0.9);
+  --my-color-booksLight: rgba(179, 160, 130, 0.8);
+  --my-color-booksDark: rgb(54, 38, 31, 0.9);
+  --my-color-booksGreen: rgba(0, 91, 76, 0.8);
+  --my-color-red: rgb(230, 10, 10);
+  --my-font-family: monospace;
+  --my-font-size-h1: clamp(24px, 4vw, 34px);
+  --my-font-size-h3: clamp(16px, 2vw, 18px);
+  --my-font-size-p: clamp(14px, 2vw, 16px);
 }
 
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  font-family: var(--my-font-family);
 }
 
 main {
@@ -24,22 +30,27 @@ main {
   width: min(100%, 1020px);
   min-height: 100vh;
   margin: 0px auto;
-  background-image: url("../img/books.jpg");
+  background-image: url("../img/bookShelf.jpg");
   background-repeat: repeat;
   background-attachment: fixed;
+  border-inline: 2px solid var(--my-color-booksDark);
 }
 main nav {
   width: 100%;
   background-color: var(--my-color-booksGreen);
+  box-shadow: 0px 3px 7px 2px var(--my-color-booksDark);
+  background-image: linear-gradient(90deg, var(--my-color-booksGreen) 0% 94%, var(--my-color-booksLight) 94% 96%, var(--my-color-booksDark) 96% 98%, var(--my-color-booksGreen) 98% 100%);
   padding-block: var(--my-padding);
 }
 main nav h1 {
+  font-size: var(--my-font-size-h1);
   text-align: center;
 }
 main .addBookForm {
   width: 70%;
   background-color: var(--my-color-booksLight);
   border-radius: var(--my-border-radius);
+  box-shadow: 0px 0px 5px 3px var(--my-color-booksDark);
   padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
 }
 main .addBookForm fieldset {
@@ -52,16 +63,38 @@ main .addBookForm fieldset {
   border-radius: var(--my-border-radius);
   padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
 }
+main .addBookForm fieldset legend {
+  color: var(--my-color-booksDark);
+  font-size: var(--my-font-size-h3);
+  font-weight: 600;
+}
 main .addBookForm fieldset label {
   margin-right: auto;
+  color: var(--my-color-booksDark);
 }
 main .addBookForm fieldset input {
   width: 100%;
   margin-bottom: var(--my-margin);
+  color: var(--my-color-booksGreen);
   padding: calc(var(--my-padding) - 4px) var(--my-padding);
 }
 main .addBookForm fieldset input[name=submitButton], main .addBookForm fieldset input[name=resetButton] {
-  padding: calc(var(--my-padding) - 6px) 0px;
+  color: var(--my-color-whiteLight);
+  background-color: var(--my-color-booksGreen);
+  border: none;
+  border-radius: 4px;
+  transition: transform 70ms linear, color 70ms linear, background-color 70ms linear;
+  width: 100px;
+  font-weight: 600;
+}
+main .addBookForm fieldset input[name=submitButton]:hover, main .addBookForm fieldset input[name=resetButton]:hover {
+  color: var(--my-color-booksGreen);
+  background-color: var(--my-color-whiteLight);
+}
+main .addBookForm fieldset input[name=submitButton]:active, main .addBookForm fieldset input[name=resetButton]:active {
+  color: var(--my-color-whiteLight);
+  background-color: var(--my-color-booksGreen);
+  transform: scale(0.9);
 }
 main .booksContainer {
   display: flex;
@@ -70,9 +103,10 @@ main .booksContainer {
   align-items: center;
   gap: 0px;
   width: 70%;
-  border-radius: var(--my-border-radius);
-  padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
   background-color: var(--my-color-booksLight);
+  border-radius: var(--my-border-radius);
+  box-shadow: 0px 0px 5px 3px var(--my-color-booksDark);
+  padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
 }
 main .booksContainer .findBookForm {
   width: 100%;
@@ -89,7 +123,17 @@ main .booksContainer .findBookForm fieldset {
   border-radius: var(--my-border-radius);
   padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
 }
+main .booksContainer .findBookForm fieldset legend {
+  color: var(--my-color-booksDark);
+  font-size: var(--my-font-size-h3);
+  font-weight: 600;
+}
+main .booksContainer .findBookForm fieldset label {
+  margin-right: auto;
+  color: var(--my-color-booksDark);
+}
 main .booksContainer .findBookForm fieldset input {
+  color: var(--my-color-booksDark);
   padding: calc(var(--my-padding) / 5) var(--my-padding);
 }
 main .booksContainer .findBookForm fieldset input:first-of-type {
@@ -106,7 +150,35 @@ main .booksContainer .booksContTop, main .booksContainer .books {
   grid-template-columns: repeat(3, 1fr) 60px;
   align-items: center;
 }
+main .booksContainer .booksContTop h3, main .booksContainer .books h3 {
+  color: var(--my-color-booksDark);
+  font-size: var(--my-font-size-h3);
+  font-weight: 600;
+}
 main .booksContainer .books {
   border-top: none;
-  color: var(--my-color-booksDark);
+}
+main .booksContainer .books p {
+  color: var(--my-color-booksGreen);
+  font-size: var(--my-font-size-p);
+}
+main .booksContainer .books button {
+  justify-self: end;
+  background-color: var(--my-color-booksGreen);
+  color: var(--my-color-whiteLight);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  transition: transform 70ms linear, color 70ms linear, background-color 70ms linear;
+}
+main .booksContainer .books button:hover {
+  background-color: var(--my-color-whiteLight);
+  color: var(--my-color-booksGreen);
+  transform: scale(1.1);
+}
+main .booksContainer .books button:active {
+  background-color: var(--my-color-red);
+  color: var(--my-color-whiteLight);
+  transform: scale(0.9);
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,16 @@
+@mixin fieldset {
+    border: 1px solid var(--my-color-booksDark);
+    border-radius: var(--my-border-radius);
+    padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+
+    legend {
+        color: var(--my-color-booksDark);
+        font-size: var(--my-font-size-h3);
+        font-weight: 600;
+    }
+
+    label {
+        margin-right: auto;
+        color: var(--my-color-booksDark);
+    }
+}
