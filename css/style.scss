@@ -1,5 +1,106 @@
+@use "./modules/index.scss" as i;
+
 * {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+}
+
+main {
+    @include i.colFlex(start, center, 20px);
+    width: min(100%, 1020px);
+    min-height: 100vh;
+    margin: 0px auto;
+    background-image: url("../img/books.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+
+    nav {
+        width: 100%;
+        background-color: var(--my-color-booksGreen);
+        padding-block: var(--my-padding);
+
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .addBookForm {
+        width: 70%;
+        background-color: var(--my-color-booksLight);
+        border-radius: var(--my-border-radius);
+        padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+
+        fieldset {
+            @include i.colFlex(center, center, 5px);
+            border: 1px solid var(--my-color-booksDark);
+            border-radius: var(--my-border-radius);
+            padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+
+            label {
+                margin-right: auto;
+            }
+
+            input {
+                width: 100%;
+                margin-bottom: var(--my-margin);
+                padding: calc(var(--my-padding) - 4px) var(--my-padding);
+
+                &[name="submitButton"],
+                &[name="resetButton"] {
+                    padding: calc(var(--my-padding) - 6px) 0px;
+                }
+            }
+        }
+
+    }
+
+    .booksContainer {
+        @include i.colFlex(center, center);
+        width: 70%;
+        border-radius: var(--my-border-radius);
+        padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+        background-color: var(--my-color-booksLight);
+
+        .findBookForm {
+            width: 100%;
+            border-radius: var(--my-border-radius);
+            padding: calc(var(--my-padding) / 2) 0px var(--my-padding);
+
+            fieldset {
+                @include i.rowFlex(center, center, 10px);
+                border: 1px solid var(--my-color-booksDark);
+                border-radius: var(--my-border-radius);
+                padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+
+                input {
+                    padding: calc(var(--my-padding) / 5) var(--my-padding);
+
+                    &:first-of-type {
+                        width: 90%;
+                    }
+
+                    &:last-of-type {
+                        width: 10%;
+                    }
+                }
+            }
+        }
+
+
+        .booksContTop {
+            width: 100%;
+            border: 1px solid var(--my-color-booksDark);
+            padding: var(--my-padding) calc(var(--my-padding) * 2);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) 60px;
+            align-items: center;
+        }
+
+        .books {
+            @extend .booksContTop;
+            border-top: none;
+            color: var(--my-color-booksDark);
+        }
+    }
 }

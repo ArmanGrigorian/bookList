@@ -10,7 +10,44 @@
 </head>
 
 <body>
+    <main>
+        <nav>
+            <h1><span id="bookSpan">Book</span><span id="listSpan">List</span></h1>
+            <!-- <button>ADD</button> -->
+        </nav>
+        <form action="#" method="GET" autocomplete="off" class="addBookForm" id="addBookForm">
+            <fieldset>
+                <legend>ADD NEW BOOK</legend>
+                <label for="bookTitleInput">Title</label>
+                <input type="text" name="bookTitleInput" class="bookTitleInput" id="bookTitleInput">
 
+                <label for="authorNameInput">Author</label>
+                <input type="text" name="authorNameInput" class="authorNameInput" id="authorNameInput">
+
+                <label for="isbnNumberInput">ISBN#</label>
+                <input type="number" name="isbnNumberInput" class="isbnNumberInput" id="isbnNumberInput">
+
+                <input type="submit" value="ADD" name="submitButton">
+                <input type="reset" value="RESET" name="resetButton">
+            </fieldset>
+        </form>
+
+        <div class="booksContainer" id="booksContainer">
+            <form action="#" method="GET" autocomplete="off" class="findBookForm" id="findBookForm">
+                <fieldset>
+                    <legend>FIND BOOK</legend>
+                    <input type="search" name="findBookInput" id="findBookInput">
+                    <input type="submit" name="findBookButton" value="FIND">
+                </fieldset>
+            </form>
+            <div class="booksContTop">
+                <h3>Title</h3>
+                <h3>Author</h3>
+                <h3>ISBN#</h3>
+            </div>
+        </div>
+
+    </main>
 </body>
 
 </html>

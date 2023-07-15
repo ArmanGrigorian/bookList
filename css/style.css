@@ -1,5 +1,112 @@
+:root {
+  --my-padding: 10px;
+  --my-margin: 12px;
+  --my-border-radius: 2px;
+  --my-color-black: rgb(0, 0, 0);
+  --my-color-whiteLight: rgb(255, 255, 255);
+  --my-color-booksLight: rgba(179, 160, 130, 0.9);
+  --my-color-booksDark: rgb(54, 38, 31);
+  --my-color-booksGreen: rgba(0, 91, 76, 0.9);
+}
+
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  width: min(100%, 1020px);
+  min-height: 100vh;
+  margin: 0px auto;
+  background-image: url("../img/books.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+main nav {
+  width: 100%;
+  background-color: var(--my-color-booksGreen);
+  padding-block: var(--my-padding);
+}
+main nav h1 {
+  text-align: center;
+}
+main .addBookForm {
+  width: 70%;
+  background-color: var(--my-color-booksLight);
+  border-radius: var(--my-border-radius);
+  padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+}
+main .addBookForm fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--my-color-booksDark);
+  border-radius: var(--my-border-radius);
+  padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+}
+main .addBookForm fieldset label {
+  margin-right: auto;
+}
+main .addBookForm fieldset input {
+  width: 100%;
+  margin-bottom: var(--my-margin);
+  padding: calc(var(--my-padding) - 4px) var(--my-padding);
+}
+main .addBookForm fieldset input[name=submitButton], main .addBookForm fieldset input[name=resetButton] {
+  padding: calc(var(--my-padding) - 6px) 0px;
+}
+main .booksContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  width: 70%;
+  border-radius: var(--my-border-radius);
+  padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+  background-color: var(--my-color-booksLight);
+}
+main .booksContainer .findBookForm {
+  width: 100%;
+  border-radius: var(--my-border-radius);
+  padding: calc(var(--my-padding) / 2) 0px var(--my-padding);
+}
+main .booksContainer .findBookForm fieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--my-color-booksDark);
+  border-radius: var(--my-border-radius);
+  padding: calc(var(--my-padding) / 2) var(--my-padding) var(--my-padding);
+}
+main .booksContainer .findBookForm fieldset input {
+  padding: calc(var(--my-padding) / 5) var(--my-padding);
+}
+main .booksContainer .findBookForm fieldset input:first-of-type {
+  width: 90%;
+}
+main .booksContainer .findBookForm fieldset input:last-of-type {
+  width: 10%;
+}
+main .booksContainer .booksContTop, main .booksContainer .books {
+  width: 100%;
+  border: 1px solid var(--my-color-booksDark);
+  padding: var(--my-padding) calc(var(--my-padding) * 2);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 60px;
+  align-items: center;
+}
+main .booksContainer .books {
+  border-top: none;
+  color: var(--my-color-booksDark);
 }/*# sourceMappingURL=style.css.map */
