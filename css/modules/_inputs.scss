@@ -1,6 +1,7 @@
 @mixin input {
     border-radius: var(--my-border-radius);
     border: 1px solid var(--my-color-booksDark);
+    box-shadow: 0px 0px 10px 1px inset var(--my-color-booksDark);
     color: var(--my-color-booksGreen);
     font-size: var(--my-font-size-p);
     letter-spacing: 1px;

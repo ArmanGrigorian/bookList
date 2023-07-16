@@ -3,9 +3,11 @@
     background-color: var(--my-color-booksGreen);
     border-radius: 4px;
     border: none;
+    box-shadow: 0px 0px 3px 1px var(--my-color-booksDark);
     color: var(--my-color-whiteLight);
-    width: 24px;
-    height: 24px;
+    width: clamp(16px, 2vw, 26px);
+    aspect-ratio: 1;
+    text-shadow: 0px 1px 1px var(--my-color-booksDark);
     transition:
         transform 70ms linear,
         color 70ms linear,
@@ -30,6 +32,7 @@
     background-color: $background-color;
     border: none;
     border-radius: 4px;
+    box-shadow: 0px 0px 3px 1px var(--my-color-booksDark);
     font-size: var(--my-font-size-p);
     text-shadow: 0px 1px 1px var(--my-color-booksDark);
     transition:

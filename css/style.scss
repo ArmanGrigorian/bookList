@@ -20,27 +20,35 @@ main {
     background-attachment: fixed;
     box-shadow: 0px 0px 7px 3px var(--my-color-booksDark);
 
+
     nav {
         width: 100%;
+        min-height: 50px;
+        line-height: 50px;
         background-color: var(--my-color-booksGreen);
         background-image: linear-gradient(90deg,
-        var(--my-color-booksGreen) 0% 94%,
-        var(--my-color-booksLight) 94% 96%,
-        var(--my-color-booksDark) 96% 98%,
-        var(--my-color-booksGreen) 98% 100%,
-        );
+                var(--my-color-booksGreen) 0% 94%,
+                var(--my-color-booksLight) 94% 96%,
+                var(--my-color-booksDark) 96% 98%,
+                var(--my-color-booksGreen) 98% 100%,
+            );
         box-shadow: 0px 0px 7px 2px var(--my-color-booksDark);
-        border-block: 1px solid var(--my-color-booksDark);
-        padding-block: var(--my-padding);
+        border-bottom: 1px solid var(--my-color-booksDark);
+        padding-block: calc(var(--my-padding) / 2);
+
 
 
         h1 {
+            background-image: url("../img/flyingBooks.gif");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 20px 0px;
             font-size: var(--my-font-size-h1);
             font-weight: 700;
             letter-spacing: 1px;
             text-align: center;
             text-shadow: 0px 1px 1px var(--my-color-booksDark);
-            
+
             span {
                 margin-inline: 1px;
             }
@@ -70,8 +78,9 @@ main {
 
                 input {
                     @include i.button;
-                    width: 90px;
                     font-weight: 700;
+                    margin-inline: 1%;
+                    width: clamp(70px, 10vw, 80px);
                 }
             }
         }
@@ -104,7 +113,8 @@ main {
 
                     &:last-of-type {
                         @include i.button;
-                        width: 80px;
+                        width: clamp(70px, 10vw, 80px);
+                        ;
                     }
                 }
             }
@@ -114,6 +124,7 @@ main {
         .booksContTop {
             width: 100%;
             border: 1px solid var(--my-color-booksDark);
+            border-radius: var(--my-border-radius);
             padding: var(--my-padding) calc(var(--my-padding) * 2);
             display: grid;
             grid-template-columns: repeat(3, 1fr) 60px;
@@ -123,6 +134,7 @@ main {
                 color: var(--my-color-booksDark);
                 font-size: var(--my-font-size-h3);
                 font-weight: 700;
+                letter-spacing: 1px;
                 text-shadow: 0px 1px 1px var(--my-color-whiteDark);
             }
 
@@ -135,6 +147,9 @@ main {
             p {
                 color: var(--my-color-booksGreen);
                 font-size: var(--my-font-size-p);
+                letter-spacing: 1px;
+                text-shadow: 0px 1px 1px var(--my-color-booksDark);
+
             }
 
             button {

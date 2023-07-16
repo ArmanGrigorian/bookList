@@ -39,13 +39,19 @@ main {
 }
 main nav {
   width: 100%;
+  min-height: 50px;
+  line-height: 50px;
   background-color: var(--my-color-booksGreen);
   background-image: linear-gradient(90deg, var(--my-color-booksGreen) 0% 94%, var(--my-color-booksLight) 94% 96%, var(--my-color-booksDark) 96% 98%, var(--my-color-booksGreen) 98% 100%);
   box-shadow: 0px 0px 7px 2px var(--my-color-booksDark);
-  border-block: 1px solid var(--my-color-booksDark);
-  padding-block: var(--my-padding);
+  border-bottom: 1px solid var(--my-color-booksDark);
+  padding-block: calc(var(--my-padding) / 2);
 }
 main nav h1 {
+  background-image: url("../img/flyingBooks.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 20px 0px;
   font-size: var(--my-font-size-h1);
   font-weight: 700;
   letter-spacing: 1px;
@@ -89,6 +95,7 @@ main .addBookForm fieldset label {
 main .addBookForm fieldset input {
   border-radius: var(--my-border-radius);
   border: 1px solid var(--my-color-booksDark);
+  box-shadow: 0px 0px 10px 1px inset var(--my-color-booksDark);
   color: var(--my-color-booksGreen);
   font-size: var(--my-font-size-p);
   letter-spacing: 1px;
@@ -109,11 +116,13 @@ main .addBookForm fieldset div input {
   background-color: var(--my-color-booksGreen);
   border: none;
   border-radius: 4px;
+  box-shadow: 0px 0px 3px 1px var(--my-color-booksDark);
   font-size: var(--my-font-size-p);
   text-shadow: 0px 1px 1px var(--my-color-booksDark);
   transition: transform 60ms linear, color 60ms linear, background-color 60ms linear;
-  width: 90px;
   font-weight: 700;
+  margin-inline: 1%;
+  width: clamp(70px, 10vw, 80px);
 }
 main .addBookForm fieldset div input:hover {
   color: var(--my-color-booksGreen);
@@ -168,6 +177,7 @@ main .booksContainer .findBookForm fieldset label {
 main .booksContainer .findBookForm fieldset input {
   border-radius: var(--my-border-radius);
   border: 1px solid var(--my-color-booksDark);
+  box-shadow: 0px 0px 10px 1px inset var(--my-color-booksDark);
   color: var(--my-color-booksGreen);
   font-size: var(--my-font-size-p);
   letter-spacing: 1px;
@@ -185,10 +195,11 @@ main .booksContainer .findBookForm fieldset input:last-of-type {
   background-color: var(--my-color-booksGreen);
   border: none;
   border-radius: 4px;
+  box-shadow: 0px 0px 3px 1px var(--my-color-booksDark);
   font-size: var(--my-font-size-p);
   text-shadow: 0px 1px 1px var(--my-color-booksDark);
   transition: transform 60ms linear, color 60ms linear, background-color 60ms linear;
-  width: 80px;
+  width: clamp(70px, 10vw, 80px);
 }
 main .booksContainer .findBookForm fieldset input:last-of-type:hover {
   color: var(--my-color-booksGreen);
@@ -202,6 +213,7 @@ main .booksContainer .findBookForm fieldset input:last-of-type:active {
 main .booksContainer .booksContTop, main .booksContainer .books {
   width: 100%;
   border: 1px solid var(--my-color-booksDark);
+  border-radius: var(--my-border-radius);
   padding: var(--my-padding) calc(var(--my-padding) * 2);
   display: grid;
   grid-template-columns: repeat(3, 1fr) 60px;
@@ -211,6 +223,7 @@ main .booksContainer .booksContTop h3, main .booksContainer .books h3 {
   color: var(--my-color-booksDark);
   font-size: var(--my-font-size-h3);
   font-weight: 700;
+  letter-spacing: 1px;
   text-shadow: 0px 1px 1px var(--my-color-whiteDark);
 }
 main .booksContainer .books {
@@ -219,15 +232,19 @@ main .booksContainer .books {
 main .booksContainer .books p {
   color: var(--my-color-booksGreen);
   font-size: var(--my-font-size-p);
+  letter-spacing: 1px;
+  text-shadow: 0px 1px 1px var(--my-color-booksDark);
 }
 main .booksContainer .books button {
   justify-self: end;
   background-color: var(--my-color-booksGreen);
   border-radius: 4px;
   border: none;
+  box-shadow: 0px 0px 3px 1px var(--my-color-booksDark);
   color: var(--my-color-whiteLight);
-  width: 24px;
-  height: 24px;
+  width: clamp(16px, 2vw, 26px);
+  aspect-ratio: 1;
+  text-shadow: 0px 1px 1px var(--my-color-booksDark);
   transition: transform 70ms linear, color 70ms linear, background-color 70ms linear;
 }
 main .booksContainer .books button:hover {
