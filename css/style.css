@@ -119,7 +119,7 @@ main .addBookForm fieldset div input {
   box-shadow: 0px 0px 3px 1px var(--my-color-booksDark);
   font-size: var(--my-font-size-p);
   text-shadow: 0px 1px 1px var(--my-color-booksDark);
-  transition: transform 60ms linear, color 60ms linear, background-color 60ms linear;
+  transition: transform 50ms linear, color 50ms linear, background-color 50ms linear;
   font-weight: 700;
   margin-inline: 1%;
   width: clamp(70px, 10vw, 80px);
@@ -198,7 +198,7 @@ main .booksContainer .findBookForm fieldset input:last-of-type {
   box-shadow: 0px 0px 3px 1px var(--my-color-booksDark);
   font-size: var(--my-font-size-p);
   text-shadow: 0px 1px 1px var(--my-color-booksDark);
-  transition: transform 60ms linear, color 60ms linear, background-color 60ms linear;
+  transition: transform 50ms linear, color 50ms linear, background-color 50ms linear;
   width: clamp(70px, 10vw, 80px);
 }
 main .booksContainer .findBookForm fieldset input:last-of-type:hover {

@@ -36,9 +36,9 @@
     font-size: var(--my-font-size-p);
     text-shadow: 0px 1px 1px var(--my-color-booksDark);
     transition:
-        transform 60ms linear,
-        color 60ms linear,
-        background-color 60ms linear;
+        transform 50ms linear,
+        color 50ms linear,
+        background-color 50ms linear;
 
     &:hover {
         color: $background-color;

@@ -1,22 +1,13 @@
-class LocStorage {
-	static setBooks(book) {
-		let bookList = LocStorage.getBooks();
-		bookList.push(book);
-		localStorage.setItem("books", JSON.stringify(booksList));
+class Book {
+	constructor(bookTitle, bookAuthor, isbnNumber) {
+		this.bookTitle = bookTitle;
+		this.bookAuthor = bookAuthor;
+		this.isbnNumber = isbnNumber;
 	}
+}
 
-	static removeBooks(isbnNumber) {
-		let booksList = LocStorage.getBooks();
-		booksList.forEach((book, i) => {
-			if (book.isbnNumber === isbnNumber) {
-				booksList.splice(i, 1);
-			}
-		});
-
-		localStorage.setItem("books", JSON.stringify(booksList));
-	}
-
-	static getBooks() {
+class CustomStorage {
+	static getBooksFromLocalStorage() {
 		let booksList = null;
 
 		if (localStorage.getItem("books") === null) {
@@ -26,13 +17,21 @@ class LocStorage {
 		}
 		return booksList;
 	}
-}
 
-class Book {
-	constructor(bookTitle, bookAuthor, isbnNumber) {
-		this.bookTitle = bookTitle;
-		this.bookAuthor = bookAuthor;
-		this.isbnNumber = isbnNumber;
+	static setBooksToLS(book) {
+		let booksList = CustomStorage.getBooksFromLocalStorage();
+		booksList.push(book);
+		localStorage.setItem("books", JSON.stringify(booksList));
+	}
+
+	static removeBooks(isbnNumber) {
+		let booksList = CustomStorage.getBooksFromLocalStorage();
+		booksList.forEach((book, i) => {
+			if (Number(book.isbnNumber) === Number(isbnNumber)) {
+				booksList.splice(i, 1);
+			}
+		});
+		localStorage.setItem("books", JSON.stringify(booksList));
 	}
 }
 
@@ -56,11 +55,11 @@ class UI {
 	}, 600);
 
 	static displayBooks() {
-		let booksList = LocStorage.getBooks();
-		booksList.forEach((book) => UI.addBook(book));
+		let booksList = CustomStorage.getBooksFromLocalStorage();
+		booksList.forEach((book) => this.addNewBook(book));
 	}
 
-	static addBook(book) {
+	static addNewBook(book) {
 		const booksContainer = document.getElementById("booksContainer");
 
 		const newBookDiv = document.createElement("div");
@@ -70,7 +69,7 @@ class UI {
 		newBookDiv.className = "book";
 		newBookDiv.id = "book";
 		newBookXButton.textContent = "X";
-		newBookXButton.dataset.isbn = book.isbnNumber;
+		newBookXButton.dataset.isbn = Number(book.isbnNumber);
 
 		for (let i in book) {
 			const newBookP = document.createElement("p");
@@ -84,8 +83,12 @@ class UI {
 
 		newBookXButton.addEventListener("click", function (e) {
 			e.target.parentElement.remove();
-			LocStorage.removeBooks(e.target.dataset.isbn);
+			CustomStorage.removeBooks(e.target.dataset.isbn);
 		});
+	}
+
+	static findBook() {
+		
 	}
 }
 
@@ -108,11 +111,8 @@ document.forms[0].addEventListener("submit", function (e) {
 			e.target.isbnNumber.value,
 		);
 
-		UI.addBook(newBook);
-
-		LocStorage.addBook(newBook)
-
-
+		UI.addNewBook(newBook);
+		CustomStorage.addNewBook(newBook);
 	}
 
 	document.forms[0].reset();
