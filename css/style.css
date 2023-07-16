@@ -210,7 +210,7 @@ main .booksContainer .findBookForm fieldset input:last-of-type:active {
   background-color: var(--my-color-booksGreen);
   transform: scale(0.95);
 }
-main .booksContainer .booksContTop, main .booksContainer .book {
+main .booksContainer .booksContTop, main .booksContainer .booksContMid .book {
   width: 100%;
   border: 1px solid var(--my-color-booksDark);
   border-radius: var(--my-border-radius);
@@ -219,17 +219,20 @@ main .booksContainer .booksContTop, main .booksContainer .book {
   grid-template-columns: repeat(2, 1fr) 60px 60px;
   align-items: center;
 }
-main .booksContainer .booksContTop h3, main .booksContainer .book h3 {
+main .booksContainer .booksContTop h3, main .booksContainer .booksContMid .book h3 {
   color: var(--my-color-booksDark);
   font-size: var(--my-font-size-h3);
   font-weight: 700;
   letter-spacing: 1px;
   text-shadow: 0px 1px 1px var(--my-color-whiteDark);
 }
-main .booksContainer .book {
-  border-top: none;
+main .booksContainer .booksContMid {
+  width: 100%;
 }
-main .booksContainer .book p {
+main .booksContainer .booksContMid .book {
+  margin-block: 3px;
+}
+main .booksContainer .booksContMid .book p {
   color: var(--my-color-booksGreen);
   font-size: var(--my-font-size-p);
   letter-spacing: 1px;
@@ -237,7 +240,7 @@ main .booksContainer .book p {
   text-decoration-line: underline;
   text-underline-offset: 3px;
 }
-main .booksContainer .book button {
+main .booksContainer .booksContMid .book button {
   justify-self: end;
   background-color: var(--my-color-booksGreen);
   border-radius: 4px;
@@ -249,12 +252,12 @@ main .booksContainer .book button {
   text-shadow: 0px 1px 1px var(--my-color-booksDark);
   transition: transform 70ms linear, color 70ms linear, background-color 70ms linear;
 }
-main .booksContainer .book button:hover {
+main .booksContainer .booksContMid .book button:hover {
   background-color: var(--my-color-whiteLight);
   color: var(--my-color-booksGreen);
   transform: scale(1.1);
 }
-main .booksContainer .book button:active {
+main .booksContainer .booksContMid .book button:active {
   background-color: var(--my-color-red);
   color: var(--my-color-whiteLight);
   transform: scale(0.9);

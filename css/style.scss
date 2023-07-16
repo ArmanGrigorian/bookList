@@ -140,21 +140,25 @@ main {
 
         }
 
-        .book {
-            @extend .booksContTop;
-            border-top: none;
+        .booksContMid {
+            width: 100%;
 
-            p {
-                color: var(--my-color-booksGreen);
-                font-size: var(--my-font-size-p);
-                letter-spacing: 1px;
-                text-shadow: 0px 1px 1px var(--my-color-booksDark);
-                text-decoration-line: underline;
-                text-underline-offset: 3px;
-            }
+            .book {
+                @extend .booksContTop;
+                margin-block: 3px;
 
-            button {
-                @include i.xButton;
+                p {
+                    color: var(--my-color-booksGreen);
+                    font-size: var(--my-font-size-p);
+                    letter-spacing: 1px;
+                    text-shadow: 0px 1px 1px var(--my-color-booksDark);
+                    text-decoration-line: underline;
+                    text-underline-offset: 3px;
+                }
+
+                button {
+                    @include i.xButton;
+                }
             }
         }
     }
