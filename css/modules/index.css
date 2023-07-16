@@ -4,11 +4,12 @@
   --my-border-radius: 4px;
   --my-color-black: rgb(0, 0, 0);
   --my-color-whiteLight: rgb(255, 255, 255);
+  --my-color-whiteDark: rgb(200, 200, 200);
   --my-color-booksLight: rgba(179, 160, 130, 0.8);
   --my-color-booksDark: rgb(54, 38, 31, 0.9);
   --my-color-booksGreen: rgba(0, 91, 76, 0.8);
   --my-color-red: rgb(230, 10, 10);
-  --my-font-family: monospace;
+  --my-font-family: "Charm", cursive;
   --my-font-size-h1: clamp(24px, 4vw, 34px);
   --my-font-size-h3: clamp(16px, 2vw, 18px);
   --my-font-size-p: clamp(14px, 2vw, 16px);

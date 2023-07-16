@@ -6,11 +6,16 @@
     legend {
         color: var(--my-color-booksDark);
         font-size: var(--my-font-size-h3);
-        font-weight: 600;
+        font-weight: 700;
+        text-shadow: 0px 1px 1px var(--my-color-whiteDark);
     }
 
     label {
-        margin-right: auto;
         color: var(--my-color-booksDark);
+        font-size: var(--my-font-size-p);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-right: auto;
+        text-shadow: 0px 1px 1px var(--my-color-whiteDark);
     }
 }

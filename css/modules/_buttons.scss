@@ -1,11 +1,11 @@
 @mixin xButton {
     justify-self: end;
     background-color: var(--my-color-booksGreen);
+    border-radius: 4px;
+    border: none;
     color: var(--my-color-whiteLight);
     width: 24px;
     height: 24px;
-    border-radius: 4px;
-    border: none;
     transition:
         transform 70ms linear,
         color 70ms linear,
@@ -30,6 +30,8 @@
     background-color: $background-color;
     border: none;
     border-radius: 4px;
+    font-size: var(--my-font-size-p);
+    text-shadow: 0px 1px 1px var(--my-color-booksDark);
     transition:
         transform 60ms linear,
         color 60ms linear,
