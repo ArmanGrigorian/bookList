@@ -216,7 +216,7 @@ main .booksContainer .booksContTop, main .booksContainer .book {
   border-radius: var(--my-border-radius);
   padding: var(--my-padding) calc(var(--my-padding) * 2);
   display: grid;
-  grid-template-columns: repeat(3, 1fr) 60px;
+  grid-template-columns: repeat(2, 1fr) 60px 60px;
   align-items: center;
 }
 main .booksContainer .booksContTop h3, main .booksContainer .book h3 {
@@ -234,6 +234,8 @@ main .booksContainer .book p {
   font-size: var(--my-font-size-p);
   letter-spacing: 1px;
   text-shadow: 0px 1px 1px var(--my-color-booksDark);
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
 }
 main .booksContainer .book button {
   justify-self: end;
