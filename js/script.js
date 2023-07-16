@@ -54,8 +54,43 @@ class UI {
         )`;
 	}, 600);
 
-	static displayBooks(booksList = CustomStorage.getBooksFromLocalStorage()) {
-		booksList.forEach((book) => this.addNewBook(book));
+
+
+	static displayBooks(booksList) {
+		booksList = JSON.parse(localStorage.getItem("books"))
+		const booksContainer = document.getElementById("booksContainer");
+		const booksContMid = document.getElementById("booksContMid");
+		console.log(booksList);
+
+		booksContMid.innerHTML = "";
+		
+		booksList.forEach((book) => {
+			const newBookDiv = document.createElement("div");
+			const newBookFrag = new DocumentFragment();
+			const newBookXButton = document.createElement("button");
+
+			booksContMid.className = "booksContMid";
+			newBookDiv.className = "book";
+			newBookDiv.id = "book";
+			newBookXButton.textContent = "X";
+			newBookXButton.dataset.isbn = Number(book.isbnNumber);
+
+			for (let i in book) {
+				const newBookP = document.createElement("p");
+				newBookP.textContent = book[i];
+				newBookFrag.append(newBookP);
+			}
+
+			newBookFrag.appendChild(newBookXButton);
+			newBookDiv.appendChild(newBookFrag);
+			booksContMid.appendChild(newBookDiv);
+			booksContainer.appendChild(booksContMid);
+
+			newBookXButton.addEventListener("click", function (e) {
+				e.target.parentElement.remove();
+				CustomStorage.removeBooks(e.target.dataset.isbn);
+			});
+		});
 	}
 
 	static addNewBook(book) {
@@ -125,29 +160,21 @@ document.forms[1].addEventListener("submit", function (e) {
 	let booksList = JSON.parse(localStorage.getItem("books"));
 
 	if (
-		booksList.some((book) => book.bookTitle.toLowerCase() === e.target.findBook.value.toLowerCase())
-	) {
-		return;
-	} else if (
+		booksList.some(
+			(book) => book.bookTitle.toLowerCase() == e.target.findBook.value.toLowerCase(),
+		) ||
 		booksList.some((book) => book.bookAuthor.toLowerCase() == e.target.findBook.value.toLowerCase())
 	) {
-		return;
-	} else if (booksList.some((book) => Number(book.isbnNumber) == Number(e.target.findBook.value))) {
-		return;
+		booksList = booksList.filter((val) => {
+			if (val.bookTitle === e.target.findBook.value || val.bookAuthor === e.target.findBook.value)
+				return val;
+		});
+		localStorage.setItem("books", JSON.stringify(booksList));
+		UI.displayBooks(JSON.parse(localStorage.getItem("books")))
 	}
-
-	booksList = booksList.filter((val) => {
-		if (
-			val.bookTitle === e.target.findBook.value ||
-			val.bookAuthor === e.target.findBook.value ||
-			val.isbnNumber === e.target.findBook.value
-		)
-			return val;
-	});
-
-	localStorage.setItem("books", JSON.stringify(booksList));
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-	UI.displayBooks();
+	let booksList = JSON.parse(localStorage.getItem("books"))
+	UI.displayBooks(booksList);
 });
