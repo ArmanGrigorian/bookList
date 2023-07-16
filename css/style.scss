@@ -15,7 +15,7 @@ main {
     background-image: url("../img/bookShelf.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
-    border-inline: 2px solid var(--my-color-booksDark);
+    border-inline: 1px solid var(--my-color-booksDark);
 
     nav {
         width: 100%;
@@ -28,7 +28,7 @@ main {
                 var(--my-color-booksGreen) 98% 100%,
             );
         padding-block: var(--my-padding);
-            
+
 
         h1 {
             font-size: var(--my-font-size-h1);
@@ -48,13 +48,16 @@ main {
             @include i.fieldset;
 
             input {
+                @include i.input;
                 width: 100%;
                 margin-bottom: var(--my-margin);
-                color: var(--my-color-booksGreen);
-                padding: calc(var(--my-padding) - 4px) var(--my-padding);
+            }
 
-                &[name="submitButton"],
-                &[name="resetButton"] {
+            div {
+                width: 100%;
+                text-align: center;
+                
+                input {
                     @include i.button;
                     width: 100px;
                     font-weight: 600;
@@ -82,14 +85,14 @@ main {
                 @include i.fieldset;
 
                 input {
-                    color: var(--my-color-booksDark);
-                    padding: calc(var(--my-padding) / 5) var(--my-padding);
+                    @include i.input;
 
                     &:first-of-type {
                         width: 90%;
                     }
 
                     &:last-of-type {
+                        @include i.button;
                         width: 10%;
                     }
                 }
@@ -110,6 +113,7 @@ main {
                 font-size: var(--my-font-size-h3);
                 font-weight: 600;
             }
+
         }
 
         .books {

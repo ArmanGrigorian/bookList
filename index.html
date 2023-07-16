@@ -13,43 +13,44 @@
     <main>
         <nav>
             <h1><span id="bookSpan">Book</span><span id="listSpan">List</span></h1>
-            <!-- <button>ADD</button> -->
         </nav>
+
         <form action="#" method="GET" class="addBookForm" id="addBookForm">
             <fieldset>
                 <legend>ADD NEW BOOK</legend>
                 <label for="bookTitleInput">Title</label>
-                <input type="text" name="bookTitleInput" class="bookTitleInput" id="bookTitleInput">
+                <input type="text" name="bookTitleInput" class="bookTitleInput" id="bookTitleInput"
+                    placeholder="enter the book's title..." required>
 
                 <label for="authorNameInput">Author</label>
-                <input type="text" name="authorNameInput" class="authorNameInput" id="authorNameInput">
+                <input type="text" name="authorNameInput" class="authorNameInput" id="authorNameInput"
+                    placeholder="enter the author's name..." required>
 
-                <label for="isbnNumberInput">ISBN#</label>
-                <input type="number" name="isbnNumberInput" class="isbnNumberInput" id="isbnNumberInput">
+                <label for="isbnNumberInput">ISBN#*</label>
+                <input type="number" name="isbnNumberInput" class="isbnNumberInput" id="isbnNumberInput"
+                    title="International Standard Book Number" placeholder="enter the ISBN..." required>
 
-                <input type="submit" value="ADD" name="submitButton">
-                <input type="reset" value="RESET" name="resetButton">
+                <div>
+                    <input type="submit" value="ADD" name="submitButton">
+                    <input type="reset" value="RESET" name="resetButton">
+                </div>
             </fieldset>
         </form>
 
         <div class="booksContainer" id="booksContainer">
+
             <form action="#" method="GET" class="findBookForm" id="findBookForm">
                 <fieldset>
-                    <legend>FIND BOOK</legend>
-                    <input type="search" name="findBookInput" id="findBookInput">
+                    <legend>FIND A BOOK</legend>
+                    <input type="search" name="findBookInput" id="findBookInput" placeholder="search for book...">
                     <input type="submit" name="findBookButton" value="FIND">
                 </fieldset>
             </form>
+
             <div class="booksContTop">
                 <h3>Title</h3>
                 <h3>Author</h3>
                 <h3>ISBN#</h3>
-            </div>
-            <div class="books">
-                <p>Title</p>
-                <p>Author</p>
-                <p>ISBN#</p>
-                <button>X</button>
             </div>
         </div>
 

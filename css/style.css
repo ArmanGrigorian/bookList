@@ -33,7 +33,7 @@ main {
   background-image: url("../img/bookShelf.jpg");
   background-repeat: repeat;
   background-attachment: fixed;
-  border-inline: 2px solid var(--my-color-booksDark);
+  border-inline: 1px solid var(--my-color-booksDark);
 }
 main nav {
   width: 100%;
@@ -73,28 +73,38 @@ main .addBookForm fieldset label {
   color: var(--my-color-booksDark);
 }
 main .addBookForm fieldset input {
-  width: 100%;
-  margin-bottom: var(--my-margin);
+  border-radius: var(--my-border-radius);
+  border: 1px solid var(--my-color-booksDark);
   color: var(--my-color-booksGreen);
   padding: calc(var(--my-padding) - 4px) var(--my-padding);
+  width: 90%;
+  width: 100%;
+  margin-bottom: var(--my-margin);
 }
-main .addBookForm fieldset input[name=submitButton], main .addBookForm fieldset input[name=resetButton] {
+main .addBookForm fieldset input:focus {
+  outline: 1px solid var(--my-color-booksDark);
+}
+main .addBookForm fieldset div {
+  width: 100%;
+  text-align: center;
+}
+main .addBookForm fieldset div input {
   color: var(--my-color-whiteLight);
   background-color: var(--my-color-booksGreen);
   border: none;
   border-radius: 4px;
-  transition: transform 70ms linear, color 70ms linear, background-color 70ms linear;
+  transition: transform 60ms linear, color 60ms linear, background-color 60ms linear;
   width: 100px;
   font-weight: 600;
 }
-main .addBookForm fieldset input[name=submitButton]:hover, main .addBookForm fieldset input[name=resetButton]:hover {
+main .addBookForm fieldset div input:hover {
   color: var(--my-color-booksGreen);
   background-color: var(--my-color-whiteLight);
 }
-main .addBookForm fieldset input[name=submitButton]:active, main .addBookForm fieldset input[name=resetButton]:active {
+main .addBookForm fieldset div input:active {
   color: var(--my-color-whiteLight);
   background-color: var(--my-color-booksGreen);
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 main .booksContainer {
   display: flex;
@@ -133,14 +143,34 @@ main .booksContainer .findBookForm fieldset label {
   color: var(--my-color-booksDark);
 }
 main .booksContainer .findBookForm fieldset input {
-  color: var(--my-color-booksDark);
-  padding: calc(var(--my-padding) / 5) var(--my-padding);
+  border-radius: var(--my-border-radius);
+  border: 1px solid var(--my-color-booksDark);
+  color: var(--my-color-booksGreen);
+  padding: calc(var(--my-padding) - 4px) var(--my-padding);
+  width: 90%;
+}
+main .booksContainer .findBookForm fieldset input:focus {
+  outline: 1px solid var(--my-color-booksDark);
 }
 main .booksContainer .findBookForm fieldset input:first-of-type {
   width: 90%;
 }
 main .booksContainer .findBookForm fieldset input:last-of-type {
+  color: var(--my-color-whiteLight);
+  background-color: var(--my-color-booksGreen);
+  border: none;
+  border-radius: 4px;
+  transition: transform 60ms linear, color 60ms linear, background-color 60ms linear;
   width: 10%;
+}
+main .booksContainer .findBookForm fieldset input:last-of-type:hover {
+  color: var(--my-color-booksGreen);
+  background-color: var(--my-color-whiteLight);
+}
+main .booksContainer .findBookForm fieldset input:last-of-type:active {
+  color: var(--my-color-whiteLight);
+  background-color: var(--my-color-booksGreen);
+  transform: scale(0.95);
 }
 main .booksContainer .booksContTop, main .booksContainer .books {
   width: 100%;

@@ -1,0 +1,11 @@
+@mixin input {
+    border-radius: var(--my-border-radius);
+    border: 1px solid var(--my-color-booksDark);
+    color: var(--my-color-booksGreen);
+    padding: calc(var(--my-padding) - 4px) var(--my-padding);
+    width: 90%;
+
+    &:focus {
+        outline: 1px solid var(--my-color-booksDark);
+    }
+}

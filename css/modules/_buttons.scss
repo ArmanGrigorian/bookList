@@ -31,9 +31,9 @@
     border: none;
     border-radius: 4px;
     transition:
-        transform 70ms linear,
-        color 70ms linear,
-        background-color 70ms linear;
+        transform 60ms linear,
+        color 60ms linear,
+        background-color 60ms linear;
 
     &:hover {
         color: $background-color;
@@ -43,6 +43,6 @@
     &:active {
         color: $color;
         background-color: $background-color;
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
 }
